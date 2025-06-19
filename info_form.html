@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1rem; /* Rounded corners for the container */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            width: 100%;
+            max-width: 500px;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #334155; /* Slate-700 */
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid #cbd5e1; /* Slate-300 */
+            border-radius: 0.5rem; /* Rounded corners for inputs */
+            box-sizing: border-box;
+            font-size: 1rem;
+            color: #1e293b; /* Slate-900 */
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #3b82f6; /* Blue-500 */
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* Focus ring */
+        }
+        button {
+            width: 100%;
+            padding: 0.85rem;
+            background-color: #3b82f6; /* Blue-500 */
+            color: #ffffff;
+            border: none;
+            border-radius: 0.5rem; /* Rounded corners for button */
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        button:hover {
+            background-color: #2563eb; /* Blue-600 */
+            transform: translateY(-1px);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">My Simple Info System</h1>
+        <form action="process_info.php" method="post">
+            <div class="mb-4">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required
+                       class="rounded-lg focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div class="mb-4">
+                <label for="birthYear">Birth Year:</label>
+                <input type="number" id="birthYear" name="birthYear" min="1900" max="2024" required
+                       class="rounded-lg focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div class="mb-4">
+                <label for="sleepingHours">Sleeping Hours per Day:</label>
+                <input type="number" id="sleepingHours" name="sleepingHours" min="0" max="24" step="0.5" required
+                       class="rounded-lg focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <div class="mb-6">
+                <label for="city">City:</label>
+                <select id="city" name="city" required
+                        class="rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    <option value="">Select your city</option>
+                    <option value="Manila">Manila</option>
+                    <option value="Cebu">Cebu</option>
+                    <option value="Davao">Davao</option>
+                    <option value="Quezon City">Quezon City</option>
+                </select>
+            </div>
+
+            <button type="submit"
+                    class="rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Submit
+            </button>
+        </form>
+    </div>
+</body>
+</html>
