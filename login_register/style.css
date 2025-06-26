@@ -1,0 +1,227 @@
+/* Import Google Font 'Quicksand' */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #e0f2f7, #c8e6c9);
+    color: #333;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* This is the core styling for both login and registration forms */
+.form-box {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    display: none;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(8px);
+    /* Adding a subtle animation for when the form appears */
+    animation: fadeInScale 0.6s ease-out forwards;
+}
+
+/* Animation for form appearance */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+.form-box.active {
+    display: block;
+}
+
+h2 {
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2e7d32; /* Deep forest green */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 14px;
+    background: #f8fcf9;
+    border-radius: 10px;
+    border: 1px solid #b2dfdb;
+    outline: none;
+    font-size: 17px;
+    color: #4CAF50;
+    margin-bottom: 22px;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+    background-color: #ffffff;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #66bb6a; /* Calming green for general buttons */
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 25px;
+    transition: 0.4s ease-in-out;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 50px;
+
+}
+
+span {
+  color: #7494ec;
+  
+}
+
+.box p {
+  font-size: 22px;
+}
+
+.box button {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+}
+
+button:hover {
+    background: #4CAF50; /* Darker green on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background: linear-gradient(to bottom right, #232526, #414345);
+    color: #f1f1f1;
+}
+
+.dark-mode .form-box {
+    background: rgba(34, 40, 49, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.dark-mode h2 {
+    color: #90ee90;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.dark-mode input,
+.dark-mode select {
+    background: #23272b;
+    color: #90ee90;
+    border: 1px solid #4CAF50;
+}
+
+.dark-mode input:focus,
+.dark-mode select:focus {
+    border-color: #90ee90;
+    background-color: #181a1b;
+    box-shadow: 0 0 10px rgba(144,238,144,0.2);
+}
+
+.dark-mode button {
+    background: #43d36c; /* Brighter green */
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.dark-mode button:hover {
+    background: #5cff8a; /* Even brighter on hover */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.dark-mode-toggle span {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+.dark-mode .dark-mode-toggle span {
+    color: #f1f1f1;
+}
+.dark-mode-toggle input[type="checkbox"] {
+    display: none;
+}
+.dark-mode-toggle label {
+    display: block;
+    width: 45px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 12.5px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.1);
+}
+.dark-mode-toggle label::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 19px;
+    height: 19px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.dark-mode-toggle input[type="checkbox"]:checked + label {
+    background-color: #4CAF50;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.2);
+}
+.dark-mode-toggle input[type="checkbox"]:checked + label::after {
+    transform: translateX(20px);
+}
+.dark-mode .dark-mode-toggle label {
+    background-color: #66bb6a;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.2);
+}
+.dark-mode .dark-mode-toggle input[type="checkbox"]:checked + label {
+    background-color: #90ee90;
+}
+.dark-mode .dark-mode-toggle input[type="checkbox"]:checked + label::after {
+    background-color: #232526;
+}
+
